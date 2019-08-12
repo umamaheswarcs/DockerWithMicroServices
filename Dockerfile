@@ -3,7 +3,7 @@ ARG BUILDCONFIG=RELEASE
 ARG VERSION=1.0.0
 
 # copy csproj and restore as distinct layers
-COPY DockerWithMicroServices.csproj /build/
+COPY DockerWithMicroServices/DockerWithMicroServices.csproj /build/
 RUN dotnet restore ./build/DockerWithMicroServices.csproj 
 
 # copy everything else and build app
