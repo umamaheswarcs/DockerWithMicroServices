@@ -19,8 +19,4 @@ steps:
   displayName: 'dotnet build $(buildConfiguration)'
 
 - script: docker build -t $(dockerId)/$(imageName) .
-- script: docker login -u $(dockerId) -p m@#E$#@550
-- script: docker push $(dockerId)/$(imageName)         
-
-  env:
-    pswd: m@#E$#@550
+- script: docker push $(dockerId)/$(imageName)
