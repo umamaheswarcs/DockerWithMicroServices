@@ -10,8 +10,31 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
+  imageName: 'umamaheswareada/dockerwithmicroservices:$(build.buildNumber)'
   buildConfiguration: 'Release'
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+
+- task: Docker@1
+  displayName: Build an image
+  inputs: 
+      command: Build an image
+      containerregistrytype: Container Registry
+      dockerRegistryEndpoint: DockerHub
+      dockerFile: Dockerfile
+      imageName: $(imageName)
+      imageNamesPath: 
+      restartPolicy: always
+
+- task: Docker@1
+  displayName: Push an image
+  inputs:
+    command: Push an image
+    containerregistrytype: Container Registry
+    dockerRegistryEndpoint: DockerHub
+    dockerFile: Dockerfile
+    imageName: $(imageName)
+    imageNamesPath: 
+    restartPolicy: always
