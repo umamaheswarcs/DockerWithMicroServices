@@ -10,6 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
+  dockerfile: 'umamaheswareada/dockerwithmicroservices/Dockerfile'
   imageName: 'umamaheswareada/dockerwithmicroservices:$(build.buildNumber)'
   buildConfiguration: 'Release'
 
@@ -23,7 +24,7 @@ steps:
       command: Build an image
       containerregistrytype: Container Registry
       dockerRegistryEndpoint: DockerHub
-      dockerFile: Dockerfile
+      dockerFile: $(dockerfile)
       imageName: $(imageName)
       imageNamesPath: 
       restartPolicy: always
@@ -34,7 +35,7 @@ steps:
     command: Push an image
     containerregistrytype: Container Registry
     dockerRegistryEndpoint: DockerHub
-    dockerFile: Dockerfile
+    dockerFile: $(dockerfile)
     imageName: $(imageName)
     imageNamesPath: 
     restartPolicy: always
