@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  dockerfile: 'umamaheswareada/dockerwithmicroservices/Dockerfile'
+  dockerfile: 'dockerwithmicroservices/Dockerfile'
   imageName: 'umamaheswareada/dockerwithmicroservices:$(build.buildNumber)'
   buildConfiguration: 'Release'
 
