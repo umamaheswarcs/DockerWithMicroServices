@@ -11,7 +11,7 @@ pool:
 
 variables:
   dockerId: 'umamaheswareada'  
-  imageName: 'umamaheswareada/dockerwithmicroservices:$(build.buildNumber)'
+  imageName: 'dockerwithmicroservices:$(build.buildNumber)'
   buildConfiguration: 'Release'
 
 steps:
