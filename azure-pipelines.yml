@@ -18,3 +18,4 @@ steps:
   displayName: 'dotnet build $(buildConfiguration)'
 
 - script: docker build -t umamaheswareada/$(imageName) -f Dockerfile .
+- script: docker login -u "umamaheswareada" -p "m@#E$#@550" docker.io
